@@ -55,6 +55,9 @@ class MainActivity : ComponentActivity() {
         //botón de restar 1
         buttonRestar1.setOnClickListener {
             contadorBlancos--
+            if (contadorBlancos < 0){
+                contadorBlancos = 0
+            }
             marcadorResultadoBlancos.setText(contadorBlancos.toString())
         }
 
@@ -83,6 +86,9 @@ class MainActivity : ComponentActivity() {
         //botón de restar 1 falta
         buttonRestarPersonalBlancos.setOnClickListener {
             contadorFaltasBlancos--
+            if (contadorFaltasBlancos < 0){
+                contadorFaltasBlancos = 0
+            }
             marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
         }
 
@@ -123,6 +129,9 @@ class MainActivity : ComponentActivity() {
         //botón de restar 1 falta
         buttonRestarPersonalNegros.setOnClickListener {
             contadorFaltasNegros--
+            if (contadorFaltasNegros < 0){
+                contadorFaltasNegros = 0
+            }
             marcadorFaltasNegros.setText(contadorFaltasNegros.toString())
         }
 
