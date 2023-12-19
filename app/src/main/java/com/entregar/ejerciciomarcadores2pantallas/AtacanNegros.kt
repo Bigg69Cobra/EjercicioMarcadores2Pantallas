@@ -5,13 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.entregar.ejerciciomarcadores2pantallas.ui.theme.EjercicioMarcadores2PantallasTheme
 
-class MainActivity : ComponentActivity() {
+class AtacanNegros : ComponentActivity() {
     private var contadorBlancos = 0
     private var contadorNegros = 0
     private var contadorFaltasBlancos = 0
@@ -19,14 +14,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dos)
 
-        // CONTADOR-BLANCOS:
-        //referencia al marcadorResultadoBlancos
-        val marcadorResultadoBlancos = findViewById<TextView>(R.id.marcadorResultadoBlancos)
+        // CONTADOR-NEGROS:
+        //referencia al marcadorResultadoNegros
+        val marcadorResultadoNegros = findViewById<TextView>(R.id.marcadorResultadoNegros)
 
-        //inicializamos el marcadorResultadoBlancos con el contadorBlancos a 0
-        marcadorResultadoBlancos.setText(contadorBlancos.toString())
+        //inicializamos el marcadorResultadoNegros con el contadorBlancos a 0
+        marcadorResultadoNegros.setText(contadorNegros.toString())
 
         //creamos las variables para los botones de sumar y restar
         val buttonSumar1 = findViewById<Button>(R.id.buttonSumar1)
@@ -37,73 +32,30 @@ class MainActivity : ComponentActivity() {
         //asociaciamos una expresión lambda como respuesta(callback) al evento Clic sobre los botones:
         //botón de sumar 1
         buttonSumar1.setOnClickListener {
-            contadorBlancos++
-            marcadorResultadoBlancos.setText(contadorBlancos.toString())
+            contadorNegros++
+            marcadorResultadoNegros.setText(contadorNegros.toString())
         }
 
         //botón de sumar 2
         buttonSumar2.setOnClickListener {
-            contadorBlancos = contadorBlancos + 2
-            marcadorResultadoBlancos.setText(contadorBlancos.toString())
+            contadorNegros = contadorNegros + 2
+            marcadorResultadoNegros.setText(contadorNegros.toString())
         }
 
         //botón de sumar 3
         buttonSumar3.setOnClickListener {
-            contadorBlancos = contadorBlancos + 3
-            marcadorResultadoBlancos.setText(contadorBlancos.toString())
+            contadorNegros = contadorNegros + 3
+            marcadorResultadoNegros.setText(contadorNegros.toString())
         }
 
         //botón de restar 1
         buttonRestar1.setOnClickListener {
-            contadorBlancos--
-            if (contadorBlancos < 0){
-                contadorBlancos = 0
+            contadorNegros--
+            if (contadorNegros < 0){
+                contadorNegros = 0
             }
-            marcadorResultadoBlancos.setText(contadorBlancos.toString())
+            marcadorResultadoNegros.setText(contadorNegros.toString())
         }
-
-
-
-
-        //FALTAS-BLANCOS
-        //referencia al contadorFaltasBlancos
-        val marcadorFaltasBlancos = findViewById<TextView>(R.id.marcadorFaltasBlancos)
-
-        //inicializamos el textViewFaltasLocal con el contadorFaltasLocal a 0
-        marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
-
-        //creamos las variables para los botones de sumar, restar
-        val buttonRestarPersonalBlancos = findViewById<Button>(R.id.buttonRestarPersonalBlancos)
-        val buttonSumarPersonalAtaque = findViewById<Button>(R.id.buttonSumarPersonalAtaque)
-
-
-        //asociaciamos una expresión lambda como respuesta (callback) al evento Clic sobre los botones:
-        //botón de sumar 1 falta
-        buttonSumarPersonalAtaque.setOnClickListener {
-            contadorFaltasBlancos++
-            marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
-        }
-
-        //botón de restar 1 falta
-        buttonRestarPersonalBlancos.setOnClickListener {
-            contadorFaltasBlancos--
-            if (contadorFaltasBlancos < 0){
-                contadorFaltasBlancos = 0
-            }
-            marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
-        }
-
-
-
-
-
-
-
-
-        // CONTADOR-BLANCOS:NEGROS
-        //referencia al marcadorResultadoNegros
-        val marcadorResultadoNegros = findViewById<TextView>(R.id.marcadorResultadoNegros)
-
 
 
 
@@ -112,17 +64,17 @@ class MainActivity : ComponentActivity() {
         //referencia al marcadorFaltasNegros
         val marcadorFaltasNegros = findViewById<TextView>(R.id.marcadorFaltasNegros)
 
-        //inicializamos el marcadorFaltasNegros con el contadorFaltasLocal a 0
-        marcadorFaltasNegros.setText(contadorFaltasNegros.toString())
+        //inicializamos el textViewFaltasLocal con el contadorFaltasLocal a 0
+        marcadorFaltasNegros.setText(marcadorFaltasNegros.toString())
 
         //creamos las variables para los botones de sumar, restar
         val buttonRestarPersonalNegros = findViewById<Button>(R.id.buttonRestarPersonalNegros)
-        val buttonSumarPersonalDefensa = findViewById<Button>(R.id.buttonSumarPersonalDefensa)
+        val buttonSumarPersonalAtaque = findViewById<Button>(R.id.buttonSumarPersonalAtaque)
 
 
         //asociaciamos una expresión lambda como respuesta (callback) al evento Clic sobre los botones:
         //botón de sumar 1 falta
-        buttonSumarPersonalDefensa.setOnClickListener {
+        buttonSumarPersonalAtaque.setOnClickListener {
             contadorFaltasNegros++
             marcadorFaltasNegros.setText(contadorFaltasNegros.toString())
         }
@@ -134,6 +86,49 @@ class MainActivity : ComponentActivity() {
                 contadorFaltasNegros = 0
             }
             marcadorFaltasNegros.setText(contadorFaltasNegros.toString())
+        }
+
+
+
+
+
+
+
+
+        // CONTADOR-NEGROS:BLANCOS
+        //referencia al marcadorResultadoBlancos
+        val marcadorResultadoBlancos = findViewById<TextView>(R.id.marcadorResultadoBlancos)
+
+
+
+
+
+        //FALTAS-BLANCOS
+        //referencia al marcadorFaltasNegros
+        val marcadorFaltasBlancos = findViewById<TextView>(R.id.marcadorFaltasBlancos)
+
+        //inicializamos el marcadorFaltasNegros con el contadorFaltasLocal a 0
+        marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
+
+        //creamos las variables para los botones de sumar, restar
+        val buttonRestarPersonalBlancos = findViewById<Button>(R.id.buttonRestarPersonalBlancos)
+        val buttonSumarPersonalDefensa = findViewById<Button>(R.id.buttonSumarPersonalDefensa)
+
+
+        //asociaciamos una expresión lambda como respuesta (callback) al evento Clic sobre los botones:
+        //botón de sumar 1 falta
+        buttonSumarPersonalDefensa.setOnClickListener {
+            contadorFaltasBlancos++
+            marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
+        }
+
+        //botón de restar 1 falta
+        buttonRestarPersonalBlancos.setOnClickListener {
+            contadorFaltasBlancos--
+            if (contadorFaltasBlancos < 0){
+                contadorFaltasBlancos = 0
+            }
+            marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
         }
 
 
@@ -153,6 +148,7 @@ class MainActivity : ComponentActivity() {
             marcadorFaltasBlancos.setText(contadorFaltasBlancos.toString())
             marcadorFaltasNegros.setText(contadorFaltasNegros.toString())
         }
+
 
 
 
@@ -182,20 +178,21 @@ class MainActivity : ComponentActivity() {
 
 
 
+
         //CAMBIO-POSESIÓN
         // Localizamos el botón de abrir la nueva actividad
-        val buttonCambioPosesionANegros = findViewById<Button>(R.id.buttonCambioPosesionANegros)
+        val buttonCambioPosesionABlancos = findViewById<Button>(R.id.buttonCambioPosesionABlancos)
 
         // Y le asociamos el gestor de eventos para el clic
         // Creando un intent que abra la otra actividad
-        buttonCambioPosesionANegros.setOnClickListener{
-            val intent = Intent(baseContext, AtacanN::class.java)  //llama a la otra pantalla
-            intent.putExtra("contadorBlancos", contadorBlancos)
+        buttonCambioPosesionABlancos.setOnClickListener{
+            val intent = Intent(baseContext, MainActivity::class.java)  //llama a la otra pantalla
+            intent.putExtra("contadorNegros", contadorNegros)
             startActivity(intent)
         }
     }
 }
-
+/*
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -211,3 +208,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+*/
